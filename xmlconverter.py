@@ -3,17 +3,6 @@
 # @Author: Alec Powell
 #-------
 
-#OLD WAY, TRIED TO USE XML2CSV PACKAGE --------DOESNT WORK
-# import csv
-# from xmlutils.xml2csv import xml2csv
-
-# inputs = "data/APPALOOSA_MANAGEMENT_LP_2014-12-31.xml"
-# outputs = "output.csv"
-
-# converter = xml2csv(inputs, outputs)
-# converter.convert(tag="nameOfIssuer", ignore="votingAuthority")
-
-
 import sys
 import csv
 import xml.etree.ElementTree as ET
