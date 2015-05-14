@@ -9,16 +9,6 @@ import xml.etree.ElementTree as ET
 
 import glob
 import os
-import time
-from itertools import izip_longest
-import fnmatch
-import datetime
-from datetime import timedelta, datetime
-import shutil
-import time
-from sys import argv
-
-import pandas as pd
 
 def xmlToCsv(inFile, outFile):
 	NS = 'http://www.sec.gov/edgar/document/thirteenf/informationtable'
