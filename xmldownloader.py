@@ -1,4 +1,5 @@
 import urllib2
+import re
 
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -19,7 +20,8 @@ def getXMLFilingsByCIK(ciks):
 		if len(xmlDocs)>0:
 			for filing in xmlDocs:
 				driver.get(filing)
-				companyName = driver.find_elements_by_class_name("companyName")[0].text.split('(Filer)')[0].replace (" ", "_")
+				companyName = driver.find_elements_by_class_name("companyName")[0].text.split('(Filer)')[0]
+				companyName = re.sub('[^a-zA-Z0-9\n]', ' ', companyName).replace (" ", "_")
 				reportDate = driver.find_element_by_id('formDiv').find_elements_by_class_name('formGrouping')[1].find_elements_by_class_name('info')[0].text
 				fileName = companyName+reportDate
 				docs = driver.find_elements_by_class_name('tableFile')[0].find_elements_by_tag_name('tbody')[0].find_elements_by_tag_name('tr')
